@@ -68,6 +68,10 @@ const camara = new THREE.PerspectiveCamera(50, 1, 0.5, 20000);
 camara.up.set(0, 0, 1);                     // el modelo es Z arriba (Rhino)
 const ctl = new OrbitControls(camara, lienzo);
 ctl.enableDamping = true; ctl.dampingFactor = 0.12; ctl.screenSpacePanning = true; ctl.maxPolarAngle = Math.PI * 0.495;
+// rueda del mouse: zoom suave y hacia donde apunta el cursor (pedido de Rodrigo, 2026-10-13: con el valor por defecto
+// era muy sensible y se perdía la vista); con distancias mínima y máxima para no atravesar el suelo ni irse al infinito
+ctl.zoomSpeed = 0.35; ctl.zoomToCursor = true; ctl.minDistance = 4; ctl.maxDistance = 9000;
+const CAM_OK = { p: new THREE.Vector3(), t: new THREE.Vector3() };
 const hemi = new THREE.HemisphereLight(0xdfeaf7, 0x6b6250, 0.75);
 escena.add(hemi);
 const sol = new THREE.DirectionalLight(0xfff1dc, 2.2);
@@ -269,7 +273,7 @@ async function cargar() {
   const vb = document.getElementById("vistas");
   for (const [k, v] of Object.entries(META.vistas)) {
     const b = document.createElement("button");
-    b.textContent = rot[k] || k;
+    b.textContent = v.nombre || rot[k] || k.replace(/^estacion_/, "Estación ").replace(/_/g, " ");   // nombre de la config manda
     b.onclick = () => ir(v);
     vb.appendChild(b);
   }
@@ -876,6 +880,10 @@ const est = document.getElementById("estado");
 let n = 0, t0 = performance.now();
 render.setAnimationLoop((tt) => {
   if (volando) pasoVuelo(performance.now()); else ctl.update();
+  // protección: si la cámara queda en un valor inválido (p. ej. zoom al cursor sin puntero), vuelve a la última buena
+  if (!Number.isFinite(camara.position.x + camara.position.y + camara.position.z + ctl.target.x + ctl.target.y + ctl.target.z)) {
+    camara.position.copy(CAM_OK.p); ctl.target.copy(CAM_OK.t); ctl.update();
+  } else { CAM_OK.p.copy(camara.position); CAM_OK.t.copy(ctl.target); }
   pasoViva();
   AGUA.t.value = performance.now() / 1000;
   cielo.position.copy(camara.position);
