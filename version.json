@@ -1,1 +1,1 @@
-{"version": 3, "fecha": "2026-10-13", "origen": "salidas/visor_3d_v7_diseno_urbano.html", "cambios": "zoom de la rueda más suave y hacia el cursor; protección de cámara"}
+{"version": 4, "fecha": "2026-10-13", "origen": "salidas/visor_3d_v7_diseno_urbano.html", "cambios": "zoom propio: 6 % por giro en cualquier rueda, hacia el cursor con freno, sensibilidad ajustable y botones"}
