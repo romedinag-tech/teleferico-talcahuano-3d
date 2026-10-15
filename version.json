@@ -1,1 +1,1 @@
-{"version": 7, "fecha": "2026-10-14", "origen": "salidas/visor_3d_v7_contexto_prueba.html", "cambios": "pagina de comparacion sentinel2.html: contexto lejano con imagen Sentinel-2 (21-02-2025) calibrada contra la ortofoto P142, en vez del OSM pintado; index.html sin cambios"}
+{"version": 8, "fecha": "2026-10-15", "origen": "salidas/visor_3d_v7_contexto_sentinel2.html", "cambios": "Sentinel-2 en el contexto lejano pasa a index.html (decision de Rodrigo); la variante OSM queda en el historial de git"}
