@@ -1,1 +1,1 @@
-{"version": 6, "fecha": "2026-10-14", "origen": "salidas/visor_3d_v7_contexto_prueba.html", "cambios": "contexto lejano: peninsula de Tumbes y Quiriquina con relieve Copernicus, ortofoto P142 completa, OSM esquematico y 41 mil edificios SECTRA fuera del recorte"}
+{"version": 7, "fecha": "2026-10-14", "origen": "salidas/visor_3d_v7_contexto_prueba.html", "cambios": "pagina de comparacion sentinel2.html: contexto lejano con imagen Sentinel-2 (21-02-2025) calibrada contra la ortofoto P142, en vez del OSM pintado; index.html sin cambios"}
