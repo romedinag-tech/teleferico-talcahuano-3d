@@ -1,1 +1,1 @@
-{"version": 9, "fecha": "2026-10-15", "origen": "salidas/visor_3d_v7_contexto_sentinel2.html", "cambios": "la esquina SE del recorte (centro, junto al puerto), sin foto en el vuelo P142 y que se veia blanca, se rellena con Sentinel-2 calibrado"}
+{"version": 10, "fecha": "2026-10-24", "origen": "salidas/visor_3d_v8_realismo.html", "cambios": "visor de realismo al nivel de Chiguayante; la v9 queda en anterior.html"}
